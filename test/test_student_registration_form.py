@@ -1,3 +1,4 @@
+from allure_commons.types import Severity
 from selene import browser, have
 from pathlib import Path
 from selenium import webdriver
@@ -7,7 +8,12 @@ from demoga_test.data.users import User
 from demoga_test.enum.enum import Gender, Hobbies, State
 from demoga_test.page.registaration_page import RegistrationPage
 
-
+@allure.tag('web')
+@allure.severity(Severity.CRITICAL)
+@allure.feature('Заполнение формы')
+@allure.label('Owner', 'mininAV')
+@allure.link('https://demoqa.com/automation-practice-form', name='Testing')
+@allure.story('TEST-001')
 def test_student_registration_form():
     with allure.step('Открытие страницы для тестирования'):
         registration_page = RegistrationPage()

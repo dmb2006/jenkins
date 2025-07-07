@@ -1,5 +1,6 @@
 from selene import browser, have
-
+import allure
+from allure_commons.types import Severity
 from demoga_test.data.users import User
 from demoga_test.enum.enum import Hobbies, Gender
 from demoga_test.pages.resources import path
