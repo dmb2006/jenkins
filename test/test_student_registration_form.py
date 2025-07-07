@@ -1,9 +1,5 @@
 from allure_commons.types import Severity
-from selene import browser, have
-from pathlib import Path
-from selenium import webdriver
 import allure
-import test
 from demoga_test.data.users import User
 from demoga_test.enum.enum import Gender, Hobbies, State
 from demoga_test.page.registaration_page import RegistrationPage

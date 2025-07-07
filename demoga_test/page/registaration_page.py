@@ -1,9 +1,9 @@
 from selene import browser, have
-import allure
-from allure_commons.types import Severity
 from demoga_test.data.users import User
-from demoga_test.enum.enum import Hobbies, Gender
 from demoga_test.pages.resources import path
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 
@@ -29,6 +29,7 @@ class RegistrationPage:
         self.should_registration = browser.element('.table-responsive').all('td')
 
     def full_fill_registration_form(self, user: User):
+
         browser.open('https://demoqa.com/automation-practice-form')
         browser.driver.execute_script("$('#fixedban').remove()")
         browser.driver.execute_script("$('footer').remove()")
