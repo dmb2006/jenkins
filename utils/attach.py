@@ -14,7 +14,6 @@ def add_logs(browser):
     except Exception as e:
         allure.attach(str(e), "error_getting_browser_logs", allure.attachment_type.TEXT)
 
-
 def add_html(browser):
     html = browser.driver.page_source
     allure.attach(html, 'page_source', AttachmentType.HTML, '.html')
