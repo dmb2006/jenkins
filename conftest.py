@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from selenium import webdriver
@@ -18,9 +20,14 @@ def setup_browser():
             "enableVideo": True
         }
     }
+
+    login = os.getenv('SELENOID_LOGIN')
+    password = os.getenv('SELENOID_PASS')
+    url = os.getenv('SELENOID_URL')
+
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
-        command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{login}:{password}@{url}/wd/hub",
         options=options)
 
     browser.config.driver = driver
