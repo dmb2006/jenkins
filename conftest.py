@@ -1,19 +1,31 @@
 import os
+from email.policy import default
 
 import pytest
-
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import browser
 
 from utils import attach
 
+def pytest_addoption(parser):
+    parser.addoption(
+        '--browser_version',
+        default='128.0'
+    )
+
+@pytest.fixture(scope="function", autouse=True)
+def load_env():
+    load_dotenv()
+
 @pytest.fixture(scope='function')
-def setup_browser():
+def setup_browser(request):
+    browser_version = request.config.getoption('--browser_version')
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "128.0",
+        "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
             "enableLOG": True,
