@@ -1,10 +1,6 @@
 from selene import browser, have
 from demoga_test.data.users import User
 from demoga_test.pages.resources import path
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-
-
 
 
 class RegistrationPage:

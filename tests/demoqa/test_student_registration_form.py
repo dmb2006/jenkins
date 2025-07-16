@@ -4,11 +4,12 @@ from demoga_test.data.users import User
 from demoga_test.enum.enum import Gender, Hobbies, State
 from demoga_test.page.registaration_page import RegistrationPage
 
+
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 @allure.feature('Заполнение формы')
 @allure.label('Owner', 'mininAV')
-@allure.link('https://demoqa.com/automation-practice-form', name='Testing')
+@allure.link('https://demoqa.com/automation-practice-form', name='Practice form')
 @allure.story('TEST-001')
 def test_student_registration_form(setup_browser):
     with allure.step('Открытие страницы для тестирования'):
