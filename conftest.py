@@ -1,5 +1,4 @@
 import os
-from email.policy import default
 
 import pytest
 from dotenv import load_dotenv
